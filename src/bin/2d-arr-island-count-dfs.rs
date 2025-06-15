@@ -1,5 +1,11 @@
-fn dfs(grid: &mut Vec<Vec<i32>>, row: isize, col: isize, directions: &[(isize, isize)], rows: isize, cols: isize) {
-
+fn dfs(
+    grid: &mut Vec<Vec<i32>>,
+    row: isize,
+    col: isize,
+    directions: &[(isize, isize)],
+    rows: isize,
+    cols: isize,
+) {
     if row < 0 || row >= rows || col < 0 || col >= cols {
         return;
     }
@@ -24,10 +30,10 @@ fn number_of_islands(mut grid: Vec<Vec<i32>>) -> i32 {
     let cols = grid[0].len();
 
     let directions = [
-        (-1, 0),  // up
-        (0, 1),   // right
-        (1, 0),   // down
-        (0, -1)   // left
+        (-1, 0), // up
+        (0, 1),  // right
+        (1, 0),  // down
+        (0, -1), // left
     ];
 
     let mut island_count = 0;
@@ -40,12 +46,12 @@ fn number_of_islands(mut grid: Vec<Vec<i32>>) -> i32 {
                 // Start DFS
 
                 dfs(
-                    &mut grid, 
-                    row as isize, 
-                    col as isize, 
-                    &directions, 
-                    rows as isize, 
-                    cols as isize
+                    &mut grid,
+                    row as isize,
+                    col as isize,
+                    &directions,
+                    rows as isize,
+                    cols as isize,
                 );
             }
         }

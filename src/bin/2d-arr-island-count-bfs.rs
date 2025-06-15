@@ -46,15 +46,13 @@ fn traversal_sequential_bfs(matrix: &mut Vec<Vec<i32>>) -> i32 {
                             continue;
                         }
 
-                        if matrix[next_row as usize][next_col as usize] == 1
-                        {
+                        if matrix[next_row as usize][next_col as usize] == 1 {
                             matrix[next_row as usize][next_col as usize] = 0;
                             queue.push_back(vec![next_row as usize, next_col as usize]);
                         }
                     }
                 }
             }
-
         }
     }
 
