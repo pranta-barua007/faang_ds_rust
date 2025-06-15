@@ -1,4 +1,4 @@
-use std::{collections::VecDeque, vec};
+use std::collections::VecDeque;
 
 fn rotten_oranges(matrix: &mut Vec<Vec<i32>>) -> i32 {
     let rows = matrix.len();
