@@ -43,6 +43,10 @@ fn traversal_bfs(matrix: &Vec<Vec<i32>>) -> Vec<i32> {
             let new_row = (row + dr) as usize;
             let new_col = (col + dc) as usize;
 
+            if new_row >= rows as usize || new_col >= cols as usize {
+                continue;
+            }
+
             queue.push_back(vec![new_row, new_col]);
         }
     }
