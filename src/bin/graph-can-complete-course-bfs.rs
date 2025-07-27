@@ -10,7 +10,7 @@ fn to_adjacency_list(pre_req_list: &Vec<(i32, i32)>, n: usize) -> Vec<Vec<usize>
 
 // Time Complexity: O(P + n^3) where P is the number of prerequisites and n is the number of courses.
 // Space Complexity: O(n^2 + 2n) 
-// for space complexit 2n -> (seen + queue); as we alread have n^2 so we dro 2n
+// for space complexit 2n -> (seen + queue); as we alread have n^2 so we drop 2n
 // Final Space Complexity: O(n^2)
 fn can_complete_course_bfs(pre_req_list: Vec<(i32, i32)>, n: i32) -> bool {
     let adj_list = to_adjacency_list(&pre_req_list, n as usize);
