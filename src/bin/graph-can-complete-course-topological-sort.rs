@@ -15,6 +15,8 @@ fn to_adjacency_and_indegree_list(pre_req_list: &Vec<(i32, i32)>, n: usize) -> (
     (adjacency_list, indegree_list)
 }
 
+// Time Complexity: O(P + n^2) where P is the number of prerequisites and n is the number of courses.
+// Space Complexity: O(n^2) 
 fn can_complete_course_dfs(pre_req_list: Vec<(i32, i32)>, n: i32) -> bool {
     let (adj_list, mut indegree_list) = to_adjacency_and_indegree_list(&pre_req_list, n as usize);
     let mut stack = vec![];
