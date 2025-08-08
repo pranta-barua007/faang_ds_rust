@@ -6,6 +6,34 @@ type Target = i32;
 type Weight = i32;
 type Edge = (Source, Target, Weight);
 
+
+// Space and time complexity:
+
+// Time Complexity:
+// - Building the adjacency list takes O(E), where E is the number of edges.
+// - Dijkstra's algorithm involves priority queue operations: for each of the E edges, we perform
+//   a push and pop operation, each taking O(log N) time. Therefore, the total time complexity for
+//   these operations is O(E log N).
+// - Thus, the overall time complexity is O(E log N), dominated by the priority queue operations.
+// Final Time Complexity: O(E log N)
+
+// Time Complexity (Detailed): 
+// Initial Time Complexity: O(2N+E+(E.logN + N.logN)) 
+// where: 
+// N is the number of nodes and E is the number of edges.
+// - O(2N) is for initializing the adjacency list and distances.
+// - O(E) is for building the adjacency list.
+// - O(E.logN) is for the priority queue operations in Dijkstra's algorithm.
+// - O(N.logN) is for the priority queue operations when processing nodes.
+// we are assure that E > N. and we can drop the N.logN term. also 2N and E are constants so those also dropped.
+// Final Time Complexity: O(E.logN) because we are using Dijkstra's algorithm which has a time complexity of O(E.logN) when using a priority queue.
+
+// Space Complexity: O(N + E)
+// Where:
+// N -> space for the priority queue, visited set, and distance array, each requiring O(N) space.
+// E -> space for the adjacency list, which requires O(N + E) space due to storing both nodes and edges.
+// Combining the above, we get O(N + N + E) = O(2N + E), which simplifies to O(N + E) by dropping the constant 2.
+// Final Space Complexity: O(N + E)
 fn network_delay_time(times: Vec<Edge>, n: i32, k: i32) -> i32 {
     let mut adjacecncy_list: Vec<Vec<(Target, Weight)>> = vec![Vec::new(); n as usize];
     let mut distances: Vec<i32> = vec![i32::MAX; n as usize];
