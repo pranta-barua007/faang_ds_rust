@@ -1,5 +1,5 @@
 use std::cmp::Reverse;
-use std::collections::{BinaryHeap, HashSet};
+use std::collections::BinaryHeap;
 
 type Source = i32;
 type Target = i32;
@@ -53,16 +53,13 @@ fn network_delay_time(times: Vec<Edge>, n: i32, k: i32) -> i32 {
     let mut heap = BinaryHeap::new();
     heap.push(Reverse((0, (k - 1) as usize))); // (distance, node)
 
-    // Set to keep track of visited nodes
-    let mut visited = HashSet::new();
 
     while let Some(Reverse((current_distance, current_vertex))) = heap.pop() {
-        // Skip the node if it has already been processed
-        if visited.contains(&current_vertex) {
+        // Skip if we've already found a shorter path
+        if current_distance > distances[current_vertex] {
+            println!("Skipping vertex {} with distance {} as it is not optimal", current_vertex + 1, current_distance);
             continue;
         }
-
-        visited.insert(current_vertex);
 
         // Update distances for adjacent nodes
         for &(adjacent_vertex, weight) in &adjacecncy_list[current_vertex] {
