@@ -81,8 +81,12 @@ fn min_cost_climbing_stairs(cost: &Vec<i32>) -> i32 {
     let n = cost.len();
     let mut dp = vec![0; n];
 
-    if n <= 1 {
+    if n == 0 {
         return 0;
+    }
+
+    if n == 1 {
+        return cost[0];
     }
     
     for i in 0..n {
