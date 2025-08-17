@@ -46,8 +46,9 @@
 // so on every brach when we encounter dp[i] we use it, eventually cutting down that branch call
 // so our call is reduced to N
 
-// Space Complexity: O(N)
-// wehere N is number of function calls for recursion call stack
+// Space Complexity: O(2N) -> drop constant 2 -> O(N)
+// where 1st N is number of function calls for recursion call stack
+// 2nd N is our cache (dp) array
 
 fn min_cost_climbing_stairs(cost: &Vec<i32>) -> i32 {
     let n = cost.len() as isize;
