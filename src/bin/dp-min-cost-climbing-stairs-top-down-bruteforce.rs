@@ -1,3 +1,5 @@
+// TOP DOWN APPROACH -> always start form last element i.e (n)
+
 // STEP 1: Find Recurrence Relationship
 // STEP 2: Find Base Cases, and Recursive Case
 
