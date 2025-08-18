@@ -5,7 +5,7 @@
 // STEP 3: Find and Memoize/Cache Repeated Subproblems/Calculations
 
 // Recurrence Relationship
-// minCost[i] = cost[i] + min(minCost[i-1], minCost[i-2]) 
+// minCost[i] = cost[i] + min(minCost[i-1], minCost[i-2])
 //  minCost[0] = cost[0]
 //  minCost[1] = cost[1]
 
@@ -36,7 +36,6 @@
 // we will cache or memoize caculation for each step in the cache array
 // so at any step i if we have dp[i] we use it else we dp[i] = calculation
 
-
 // Time and Space Complexity
 
 // Time Complexity: O(2^N) reduced to -> O(N) with memoization
@@ -52,7 +51,13 @@
 
 fn min_cost_climbing_stairs(cost: &Vec<i32>) -> i32 {
     let n = cost.len() as isize;
+
+    if n == 1 {
+        return cost[0];
+    }
+
     let mut dp = vec![0; n as usize];
+    
     min_cost(n - 1, cost, &mut dp).min(min_cost(n - 2, cost, &mut dp))
 }
 
@@ -60,6 +65,7 @@ fn min_cost(i: isize, cost: &Vec<i32>, dp: &mut Vec<i32>) -> i32 {
     if i < 0 {
         return 0;
     }
+
     if i == 0 || i == 1 {
         return cost[i as usize];
     }
@@ -72,7 +78,6 @@ fn min_cost(i: isize, cost: &Vec<i32>, dp: &mut Vec<i32>) -> i32 {
 
     dp[i as usize]
 }
-
 
 fn main() {
     let cost = vec![1, 100, 1, 1, 1, 100, 1, 1, 100, 1];
