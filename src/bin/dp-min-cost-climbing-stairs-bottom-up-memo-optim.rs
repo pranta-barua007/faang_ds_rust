@@ -95,16 +95,16 @@ fn min_cost_climbing_stairs(cost: &Vec<i32>) -> i32 {
         return cost[0];
     }
 
-    let mut dp_one = cost[0];
-    let mut dp_two = cost[1];
+    let mut dp_prev = cost[0];
+    let mut dp_current = cost[1];
     
     for i in 2..n {
-        let current = cost[i] + dp_one.min(dp_two);
-        dp_two = dp_one;
-        dp_one = current;
+        let current = cost[i] + dp_prev.min(dp_current);
+        dp_prev = dp_current;
+        dp_current = current;
     }
 
-    dp_one.min(dp_two)
+    dp_prev.min(dp_current)
 }
 
 
