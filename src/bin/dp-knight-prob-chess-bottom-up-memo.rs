@@ -28,6 +28,7 @@
 
 // Bottom up Approach
 // identify the recusrive depth driving factor, which is k here
+// identify known state, at k=0 we know the prob of knight is 1 at (row, column)
 // here we will start from 0 will go to k
 // at k = 0 we know the prob of knight is 1 at (row, column) and 0 at all other places
 // then we will use our dp at k=0 to find the prob at k=1 then so on till k
