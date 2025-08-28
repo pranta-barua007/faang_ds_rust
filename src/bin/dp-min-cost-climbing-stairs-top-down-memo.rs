@@ -49,7 +49,7 @@
 // where 1st N is number of function calls for recursion call stack
 // 2nd N is our cache (dp) array
 
-fn min_cost_climbing_stairs(cost: &Vec<i32>) -> i32 {
+fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
     let n = cost.len() as isize;
 
     if n == 1 {
@@ -58,7 +58,7 @@ fn min_cost_climbing_stairs(cost: &Vec<i32>) -> i32 {
 
     let mut dp = vec![0; n as usize];
     
-    min_cost(n - 1, cost, &mut dp).min(min_cost(n - 2, cost, &mut dp))
+    min_cost(n - 1, &cost, &mut dp).min(min_cost(n - 2, &cost, &mut dp))
 }
 
 fn min_cost(i: isize, cost: &Vec<i32>, dp: &mut Vec<i32>) -> i32 {
@@ -81,5 +81,5 @@ fn min_cost(i: isize, cost: &Vec<i32>, dp: &mut Vec<i32>) -> i32 {
 
 fn main() {
     let cost = vec![1, 100, 1, 1, 1, 100, 1, 1, 100, 1];
-    println!("Min cost: {}", min_cost_climbing_stairs(&cost));
+    println!("Min cost: {}", min_cost_climbing_stairs(cost));
 }
