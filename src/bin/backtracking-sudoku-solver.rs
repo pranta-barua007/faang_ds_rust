@@ -1,7 +1,9 @@
 use std::collections::HashSet;
 
 fn get_box_id(row: usize, col: usize) -> usize {
-    (row / 3) * 3 + (col / 3)
+    let col_val = col / 3;
+    let row_val = (row / 3) * 3;
+    col_val + row_val
 }
 
 fn is_valid(
